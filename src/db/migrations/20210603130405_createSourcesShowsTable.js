@@ -13,7 +13,7 @@ exports.up = function(knex) {
         .references("show_id")
         .inTable("shows")
         .onDelete("CASCADE");
-      table.boolean("full_series");
+      table.boolean("full_series").notNullable().defaultTo(true);
       table.string("show_url");
       table.timestamps(true, true);
     });
