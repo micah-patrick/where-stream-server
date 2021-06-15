@@ -22,8 +22,7 @@ async function read(source_id){
     .join("sources_shows as ss", "so.source_id", "ss.source_id")
     .join("shows as sh", "ss.show_id", "sh.show_id")
     .select("*")
-    .where({source_id})
-    .first()
+    .where({"so.source_id": source_id})
     .then((result) => reduceShows(result));
 }
 
@@ -31,3 +30,7 @@ module.exports = {
     list,
     read,
 }
+
+
+
+
